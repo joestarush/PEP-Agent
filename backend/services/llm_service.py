@@ -5,8 +5,7 @@ from models import AnalysisResult
 import os
 
 class LLMService:
-    def __init__(self):
-        # Using 'gemini-pro' as it is the most stable model alias currently
+    def __init__(self) -> None:
         self.llm = ChatGoogleGenerativeAI(
             model="gemini-2.5-flash-lite",
             temperature=0,
@@ -16,10 +15,8 @@ class LLMService:
 
     async def process_email(self, email_body: str, prompt_template_str: str) -> dict:
         try:
-            format_instructions = self.parser.get_format_instructions()
-            
-            # FIX: We define the template with placeholders {keys}
-            # We do NOT use f-strings here, so LangChain doesn't get confused
+            format_instr = self.parser.get_format_instructions()
+
             template = (
                 "You are an intelligent email agent. Follow these rules strictly:\n"
                 "{prompt_rules}\n\n"
@@ -29,23 +26,22 @@ class LLMService:
                 "Return the result in this valid JSON format:\n"
                 "{format_instructions}"
             )
-            
+
             prompt = ChatPromptTemplate.from_template(template)
             chain = prompt | self.llm | self.parser
-            
-            # FIX: We pass the actual values here
-            # This ensures the JSON brackets in format_instructions are treated as text, not variables
+
             result = await chain.ainvoke({
                 "prompt_rules": prompt_template_str,
                 "email_content": email_body,
-                "format_instructions": format_instructions
+                "format_instructions": format_instr
             })
+
             return result
-            
-        except Exception as e:
-            print(f"LLM Processing Error: {e}")
+
+        except Exception as exc:
+            print(f"LLMService error: {exc}")
             return {
-                "category": "Error", 
-                "summary": "Could not process email due to AI error.", 
+                "category": "Error",
+                "summary": "Could not process email due to AI error.",
                 "action_items": []
             }

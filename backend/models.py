@@ -2,7 +2,6 @@ from pydantic import BaseModel, Field, BeforeValidator
 from typing import List, Optional, Annotated
 from datetime import datetime
 
-# Helper to handle MongoDB _id
 PyObjectId = Annotated[str, BeforeValidator(str)]
 
 class AnalysisResult(BaseModel):
@@ -21,5 +20,5 @@ class EmailModel(BaseModel):
 
 class PromptConfigModel(BaseModel):
     id: Optional[PyObjectId] = Field(alias="_id", default=None)
-    type: str  # e.g., "categorization", "extraction"
+    type: str
     template_text: str

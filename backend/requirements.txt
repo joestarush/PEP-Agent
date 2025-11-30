@@ -2,6 +2,6 @@ fastapi
 uvicorn
 motor
 langchain
-langchain-openai
+langchain-google-genai
 python-dotenv
 pydantic

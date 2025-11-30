@@ -1,0 +1,32 @@
+[
+  {
+    "sender": "boss@company.com",
+    "subject": "Urgent: Q3 Report Required",
+    "body": "Hi, I need the Q3 financial report on my desk by Friday 5 PM. This is critical for the board meeting. Please ensure all spreadsheets are attached."
+  },
+  {
+    "sender": "newsletter@tech-weekly.com",
+    "subject": "The Future of AI is Here",
+    "body": "In this week's issue: Google Gemini takes over the world, Python 3.14 rumors, and 5 tips to code faster. Click here to read more."
+  },
+  {
+    "sender": "recruiter@jobhunt.com",
+    "subject": "Interview Follow-up: Senior Developer Role",
+    "body": "Hello, we loved your assignment submission! We would like to schedule a final round interview next Tuesday at 10 AM. Please let us know your availability."
+  },
+  {
+    "sender": "spam-bot@winner.com",
+    "subject": "CONGRATS! YOU WON $1,000,000",
+    "body": "You have been selected as the grand prize winner. Send us your bank details immediately to claim your prize. act fast!"
+  },
+  {
+    "sender": "mom@family.com",
+    "subject": "Sunday Dinner?",
+    "body": "Are you coming home this weekend? Dad is making lasagna. Let me know so I can buy ingredients."
+  },
+  {
+    "sender": "client@bigcorp.com",
+    "subject": "Project Deadline Extension",
+    "body": "We are running behind on the assets. Can we push the deadline to next Monday? Let me know if that works for your team."
+  }
+]
